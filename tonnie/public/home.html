@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tonnie roofing</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-blue-600 text-white p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="logo text-2xl font-bold">TONNIE ROOFING</div>
+            <ul class="flex space-x-6">
+                <li><a href="#home" class="hover:text-blue-200">Home</a></li>
+                <li><a href="#projects" class="hover:text-blue-200">Projects</a></li>
+                <li><a href="#services" class="hover:text-blue-200">Services</a></li>
+                <li><a href="#testimonials" class="hover:text-blue-200">Testimonials</a></li>
+                <li><a href="#contact" class="hover:text-blue-200">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="bg-cover bg-center h-screen flex items-center" style="background-image: url('hero-background.jpg')">
+        <section id="intro" class="py-16 bg-white">
+            <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8">
+                <!-- Text Content -->
+                <div class="text-content">
+                    <h1 class="text-4xl font-bold text-blue-600 mb-6">Welcome to Tonnie Roofing</h1>
+                    <p class="text-gray-600 text-lg">
+                        At Tonnie Roofing, we specialize in providing top-notch roofing solutions tailored to your needs. 
+                        From expert installations to reliable repairs, we pride ourselves on exceptional craftsmanship and 
+                        unparalleled customer service. With years of experience and a dedication to quality, we ensure your 
+                        property is protected and aesthetically enhanced. Trust us to deliver roofing excellence every time.
+                    </p>
+                </div>
+                <!-- Image Content -->
+                <div class="image-content">
+                    <img src="intro.jpg" alt="Tonnie Roofing Welcome" class="w-full rounded-lg shadow-lg">
+                </div>
+            </div>
+        </section>
+            </header>
+            <section id="services" class="py-16 bg-gray-100">
+                <div class="container mx-auto text-center">
+                    <h2 class="text-4xl font-bold mb-8 text-blue-600">Our Services</h2>
+                    <p class="text-gray-600 mb-12 max-w-2xl mx-auto">
+                        We provide a wide range of professional services to meet your construction and design needs, ensuring high-quality results and customer satisfaction.
+                    </p>
+            
+                    <!-- Services Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" >
+                        <!-- Service Card -->
+                        <div class="service-card bg-blue-100 rounded-lg shadow-lg p-6" style="background-image:url(roofing.jpg)">
+                            <div class="flex justify-center items-center text-blue-600 rounded-full w-16 h-16 mb-4 mx-auto">
+                                <i class="fas fa-home text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-4">Roofing Installation</h3>
+                            <p class="text-gray-600">Our expert team provides roofing installation using high-quality, durable materials that ensure long-lasting protection against the elements. We focus on precision and craftsmanship to deliver the best results for your property.</p>
+                        </div>
+            
+                        <!-- Service Card -->
+                        <div class="service-card bg-blue-200 rounded-lg shadow-lg p-6" style="background-image:url(gypsum.jpg)">
+                            <div class="flex justify-center items-center text-blue-700 rounded-full w-16 h-16 mb-4 mx-auto">
+                                <i class="fas fa-hammer text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-4">Gypsum Installation</h3>
+                            <p class="text-gray-600">We specialize in gypsum installation for walls and ceilings. Our skilled technicians ensure smooth and seamless surfaces, providing you with an aesthetically pleasing and functional finish for your interiors.</p>
+                        </div>
+            
+                        <!-- Service Card -->
+                        <div class="service-card bg-blue-300 rounded-lg shadow-lg p-6" style="background-image:url(ceiling.jpg)">
+                            <div class="flex justify-center items-center text-blue-800 rounded-full w-16 h-16 mb-4 mx-auto">
+                                <i class="fas fa-tools text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-4">Ceiling Installations</h3>
+                            <p class="text-gray-600">Enhance the beauty and functionality of your spaces with our ceiling installation services. We offer various ceiling styles and designs to match your home's aesthetic and improve overall ambiance.</p>
+                        </div>
+            
+                        <!-- Service Card -->
+                        <div class="service-card bg-blue-400 rounded-lg shadow-lg p-6" style="background-image:url(interior.jpg)">
+                            <div class="flex justify-center items-center text-blue-900 rounded-full w-16 h-16 mb-4 mx-auto">
+                                <i class="fas fa-paint-roller text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-4">Interior Design</h3>
+                            <p class="text-gray-600">Transform your living or workspaces with our interior design expertise. We offer creative and functional design solutions tailored to your unique needs, focusing on aesthetics, comfort, and practicality.</p>
+                        </div>
+            
+                        <!-- Service Card -->
+                        <div class="service-card bg-blue-500 rounded-lg shadow-lg p-6" style="background-image:url(repair.jpg)">
+                            <div class="flex justify-center items-center text-blue-100 rounded-full w-16 h-16 mb-4 mx-auto">
+                                <i class="fas fa-wrench text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-4">Roof Repairs</h3>
+                            <p class="text-gray-600">We provide fast and efficient roof repair services, handling everything from minor leaks to major damages. Our team ensures a thorough inspection and reliable repairs to restore your roof's integrity.</p>
+                        </div>
+            
+                        <!-- Service Card -->
+                        <div class="service-card bg-blue-600 rounded-lg shadow-lg p-6" style="background-image:url(design.jpg)">
+                            <div class="flex justify-center items-center text-blue-200 rounded-full w-16 h-16 mb-4 mx-auto">
+                                <i class="fas fa-drafting-compass text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-4">Roof Design</h3>
+                            <p class="text-gray-600">Our roof design services are tailored to suit your style and functional requirements. We work closely with clients to create custom roof designs that offer both aesthetic appeal and practical benefits for your property.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+    
+    <!-- Add Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <section class="py-16" id="projects">
+    <div class="container mx-auto">
+        <section class="py-16" id="projects">
+            <div class="container mx-auto">
+                <div class="scrollable-projects">
+                    <!-- Project 1 -->
+                    <a class="project-card" onclick="openGallery(['roofing.jpg', 'roofing-detail1.jpg', 'roofing-detail2.jpg'])">
+                        <img src="roofing.jpg" alt="Project 1">
+                        <div class="text-overlay">
+                            <h4>Project 1: Residential Roof Replacement</h4>
+                            <p>Complete roof replacement using premium architectural shingles to enhance weather resistance and durability.</p>
+                        </div>
+                    </a>
+                    <!-- Project 2 -->
+                    <a class="project-card" onclick="openGallery(['roof3.jpg', '/public/images/roof7.jpg', 'project2-detail2.jpg'])">
+                        <img src="roof3.jpg" alt="Project 2">
+                        <div class="text-overlay">
+                            <h4>Project 2: Commercial Roof Installation</h4>
+                            <p>Large-scale commercial roof installation using energy-efficient materials with a modern design.</p>
+                        </div>
+                    </a>
+                    <!-- Project 3 -->
+                    <a class="project-card" onclick="openGallery(['project3.jpg', 'project3-detail1.jpg', 'project3-detail2.jpg'])">
+                        <img src="roof7.jpg" alt="Project 3">
+                        <div class="text-overlay">
+                            <h4>Project 3: Luxury Villa Roof Repair</h4>
+                            <p>Roof repair for a luxury villa with high-end materials ensuring long-lasting results and aesthetic appeal.</p>
+                        </div>
+                    </a>
+                    <!-- Project 4 -->
+                    <a class="project-card" onclick="openGallery(['project4.jpg', 'project4-detail1.jpg', 'project4-detail2.jpg'])">
+                        <img src="roof1.jpg" alt="Project 4">
+                        <div class="text-overlay">
+                            <h4>Project 4: Industrial Roof Overhaul</h4>
+                            <p>Comprehensive roof overhaul for a manufacturing facility with heavy-duty and weatherproof materials.</p>
+                        </div>
+                    </a>
+                    <!-- Project 5 -->
+                    <a class="project-card" onclick="openGallery(['project5.jpg', 'project5-detail1.jpg', 'project5-detail2.jpg'])">
+                        <img src="roof11.jpg" alt="Project 5">
+                        <div class="text-overlay">
+                            <h4>Project 5: Eco-Friendly Roof Installation</h4>
+                            <p>Installation of sustainable roofing solutions utilizing eco-friendly materials and solar integration.</p>
+                        </div>
+                    </a>
+                    <!-- Project 6 -->
+                    <a class="project-card" onclick="openGallery(['project6.jpg', 'project6-detail1.jpg', 'project6-detail2.jpg'])">
+                        <img src="roof2.jpg" alt="Project 6">
+                        <div class="text-overlay">
+                            <h4>Project 6: Historic Building Restoration</h4>
+                            <p>Roof restoration for a historic building, preserving its heritage while enhancing structural integrity.</p>
+                        </div>
+                    </a>
+                    <!-- Project 7 -->
+                    <a class="project-card" onclick="openGallery(['gypsum1.jpg', 'gypsum1-detail1.jpg', 'gypsum1-detail2.jpg'])">
+                        <img src="roof6.jpg" alt="Project 7">
+                        <div class="text-overlay">
+                            <h4>Project 7: Modern Gypsum Ceiling</h4>
+                            <p>Contemporary gypsum ceiling design featuring intricate patterns and energy-efficient lighting options.</p>
+                        </div>
+                    </a>
+                    <!-- Project 8 -->
+                    <a class="project-card" onclick="openGallery(['gypsum2.jpg', 'gypsum2-detail1.jpg', 'gypsum2-detail2.jpg'])">
+                        <img src="roof5.jpg" alt="Project 8">
+                        <div class="text-overlay">
+                            <h4>Project 8: Soundproof Gypsum Wall</h4>
+                            <p>Installation of soundproof gypsum walls for enhanced privacy and noise reduction in residential spaces.</p>
+                        </div>
+                    </a>
+                    <!-- Project 9 -->
+                    <a class="project-card" onclick="openGallery(['roofdesign1.jpg', 'roofdesign1-detail1.jpg', 'roofdesign1-detail2.jpg'])">
+                        <img src="roof9.jpg" alt="Project 9">
+                        <div class="text-overlay">
+                            <h4>Project 9: Contemporary Roof Design</h4>
+                            <p>Innovative roof design with a focus on aesthetics and modern architecture, using durable materials.</p>
+                        </div>
+                    </a>
+                    <!-- Project 10 -->
+                    <a class="project-card" onclick="openGallery(['roofdesign2.jpg', 'roofdesign2-detail1.jpg', 'roofdesign2-detail2.jpg'])">
+                        <img src="roof8.jpg" alt="Project 10">
+                        <div class="text-overlay">
+                            <h4>Project 10: Eco-Friendly Roof Design</h4>
+                            <p>Green roof design incorporating vegetation layers to promote sustainability and energy efficiency.</p>
+                        </div>
+                    </a>
+                    <!-- Project 11 -->
+                    <a class="project-card" onclick="openGallery(['ceiling1.jpg', 'ceiling1-detail1.jpg', 'ceiling1-detail2.jpg'])">
+                        <img src="roof10.jpg" alt="Project 11">
+                        <div class="text-overlay">
+                            <h4>Project 11: Decorative Ceiling Installation</h4>
+                            <p>Beautiful decorative ceiling installation featuring artistic patterns and advanced materials.</p>
+                        </div>
+                    </a>
+                    <!-- Project 12 -->
+                    <a class="project-card" onclick="openGallery(['ceiling2.jpg', 'ceiling2-detail1.jpg', 'ceiling2-detail2.jpg'])">
+                        <img src="roof2.jpg" alt="Project 12">
+                        <div class="text-overlay">
+                            <h4>Project 12: Acoustic Ceiling Installation</h4>
+                            <p>Installation of acoustic ceilings to improve sound quality and reduce noise in commercial spaces.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+
+    <!-- Add more project cards as needed -->
+</div>
+
+
+    <!-- Modal for Gallery -->
+    <div id="galleryModal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+        <div class="relative bg-white rounded-lg shadow-lg p-6">
+            <button class="absolute top-2 right-2 text-gray-500 hover:text-gray-800" onclick="closeGallery()">
+                &times;
+            </button>
+            <div id="galleryImages" class="flex space-x-4 overflow-x-scroll">
+                <!-- Images will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Testimonials & Comments Section -->
+<section id="testimonials" class="py-16 bg-white">
+    <div class="container mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12">What Our Clients Say</h2>
+
+        <!-- Testimonials and Comments Horizontal Scroll Section -->
+        <div class="flex overflow-x-auto space-x-8 mb-8" id="scrollableSection">
+            <!-- Testimonial 1 -->
+            <div class="bg-gray-100 p-8 rounded-lg w-80 flex-shrink-0">
+                <blockquote class="mb-4">"Excellent service and professional team. Highly recommend!"</blockquote>
+                <p class="font-semibold">- John Doe</p>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="bg-gray-100 p-8 rounded-lg w-80 flex-shrink-0">
+                <blockquote class="mb-4">"The roofing service was top-notch, and they finished on time!"</blockquote>
+                <p class="font-semibold">- Sarah Lee</p>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="bg-gray-100 p-8 rounded-lg w-80 flex-shrink-0">
+                <blockquote class="mb-4">"Amazing interior design work! They completely transformed my space."</blockquote>
+                <p class="font-semibold">- Mark Smith</p>
+            </div>
+            <!-- New Comments will be dynamically inserted here -->
+        </div>
+
+        <!-- Comment Form Below Testimonials -->
+        <div class="bg-white p-8 rounded-lg shadow-lg mb-8">
+            <h3 class="text-2xl font-semibold text-center text-gray-800 mb-4">Leave a Comment</h3>
+            <form id="commentForm" class="space-y-4">
+                <div>
+                    <label for="name" class="block text-gray-800 font-medium mb-2">Name</label>
+                    <input type="text" id="name" class="w-full border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Your Name" required>
+                </div>
+                <div>
+                    <label for="comment" class="block text-gray-800 font-medium mb-2">Comment</label>
+                    <textarea id="comment" rows="4" class="w-full border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Your thoughts on our services" required></textarea>
+                </div>
+                <button type="submit" class="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">
+                    Post Comment
+                </button>
+            </form>
+        </div>
+
+        <!-- Display New Comment in the Scrollable Section -->
+        <div id="commentsSection" class="mt-8"></div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section class="bg-gray-100 py-16" id="contact">
+        <div class="container mx-auto px-6 lg:px-20">
+            <h2 class="text-4xl font-bold text-center text-blue-600 mb-8">Contact Us</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <!-- Contact Information -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Get in Touch</h3>
+                    <p class="text-gray-600 mb-6">
+                        Whether you have a question about our services, pricing, or want to book a consultation, our team is ready to help.
+                    </p>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-800">Phone</h4>
+                        <p class="text-gray-600">071000000000</p>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-800">Address</h4>
+                        <p class="text-gray-600">kasarani, Nairobi County</p>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-800">Email</h4>
+                        <p class="text-gray-600">info@tonnieroofing.com</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-800">Follow Us</h4>
+                        <ul class="list-none mt-2 space-y-2">
+                            <li><a href="#" class="text-blue-600 hover:underline">Facebook</a></li>
+                            <li><a href="#" class="text-blue-400 hover:underline">Twitter</a></li>
+                            <li><a href="#" class="text-pink-600 hover:underline">Instagram</a></li>
+                            <li><a href="#" class="text-blue-700 hover:underline">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <!-- Contact Form -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-800 font-medium mb-2">Name</label>
+                            <input type="text" id="name" class="w-full border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-800 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-800 font-medium mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Tonnie Roofing Solutions. All Rights Reserved.</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="hover:text-blue-200">Privacy Policy</a>
+                <a href="#" class="hover:text-blue-200">Terms of Service</a>
+                <a href="dashboard.html" class="hover:text-blue-200">Dashboard</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Gallery Overlay -->
+    <div id="gallery" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden items-center justify-center">
+        <div class="relative max-w-4xl max-h-[80vh] w-full">
+            <img id="gallery-image" class="w-full h-full object-contain" />
+            <button id="gallery-close" class="absolute top-4 right-4 text-white text-4xl">&times;</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Project-specific photos (replace with actual image paths)
+        const projectPhotos = {
+            project1: [
+                'https://via.placeholder.com/400x300?text=Project+1+Image+1',
+                'https://via.placeholder.com/400x300?text=Project+1+Image+2',
+                'https://via.placeholder.com/400x300?text=Project+1+Image+3',
+            ],
+            project2: [
+                'https://via.placeholder.com/400x300?text=Project+2+Image+1',
+                'https://via.placeholder.com/400x300?text=Project+2+Image+2',
+                'https://via.placeholder.com/400x300?text=Project+2+Image+3',
+            ],
+            project3: [
+                'https://via.placeholder.com/400x300?text=Project+3+Image+1',
+                'https://via.placeholder.com/400x300?text=Project+3+Image+2',
+                'https://via.placeholder.com/400x300?text=Project+3+Image+3',
+            ],
+            project4: [
+                'https://via.placeholder.com/400x300?text=Project+4+Image+1',
+                'https://via.placeholder.com/400x300?text=Project+4+Image+2',
+                'https://via.placeholder.com/400x300?text=Project+4+Image+3',
+            ],
+            project5: [
+                'https://via.placeholder.com/400x300?text=Project+5+Image+1',
+                'https://via.placeholder.com/400x300?text=Project+5+Image+2',
+                'https://via.placeholder.com/400x300?text=Project+5+Image+3',
+            ],
+            project6: [
+                'https://via.placeholder.com/400x300?text=Project+6+Image+1',
+                'https://via.placeholder.com/400x300?text=Project+6+Image+2',
+                'https://via.placeholder.com/400x300?text=Project+6+Image+3',
+            ],
+            project7: [
+                'https://via.placeholder.com/400x300?text=Project+7+Image+1',
+                'https://via.placeholder.com/400x300?text=Project+7+Image+2',
+                'https://via.placeholder.com/400x300?text=Project+7+Image+3',
+            ],
+            project8: [
+                'https://via.placeholder.com/400x300?text=Project+8+Image+1',
+                'https://via.placeholder.com/400x300?text=Project+8+Image+2',
+                'https://via.placeholder.com/400x300?text=Project+8+Image+3',
+            ],
+            project9: [
+                'https://via.placeholder.com/400x300?text=Project+9+Image+1',
+                'https://via.placeholder.com/400x300?text=Project+9+Image+2',
+                'https://via.placeholder.com/400x300?text=Project+9+Image+3',
+            ],
+            project10: [
+                'https://via.placeholder.com/400x300?text=Project+10+Image+1',
+                'https://via.placeholder.com/400x300?text=Project+10+Image+2',
+                'https://via.placeholder.com/400x300?text=Project+10+Image+3',
+            ],
+            project11: [
+                'https://via.placeholder.com/400x300?text=Project+11+Image+1',
+                'https://via.placeholder.com/400x300?text=Project+11+Image+2',
+                'https://via.placeholder.com/400x300?text=Project+11+Image+3',
+            ],
+            project12: [
+                'https://via.placeholder.com/400x300?text=Project+12+Image+1',
+                'https://via.placeholder.com/400x300?text=Project+12+Image+2',
+                'https://via.placeholder.com/400x300?text=Project+12+Image+3',
+            ],
+        };
+
+        // Modal and gallery elements
+        const modal = document.getElementById('galleryModal');
+        const galleryGrid = document.getElementById('galleryGrid');
+        const closeModal = document.querySelector('.modal .close');
+
+        // Open modal with gallery
+        document.querySelectorAll('.project').forEach(project => {
+            project.addEventListener('click', function() {
+                const projectId = this.getAttribute('data-project-id');
+                const photos = projectPhotos[projectId] || [];
+                
+                // Populate gallery grid
+                galleryGrid.innerHTML = photos.map(photo => 
+                    `<img src="${photo}" alt="Project photo">`
+                ).join('');
+                
+                // Show modal
+                modal.style.display = 'block';
+            });
+        });
+
+        // Close modal when clicking on close button
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside the modal content
+        window.addEventListener('click', event => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

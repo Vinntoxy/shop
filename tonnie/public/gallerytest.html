@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reliable Roofing Co. Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .hidden {
+            display: none;
+        }
+        .flex {
+            display: flex;
+        }
+        .project-card {
+            cursor: pointer;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            text-align: center;
+            margin: 1rem;
+        }
+        #gallery {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        #gallery img {
+            max-width: 90%;
+            max-height: 80%;
+        }
+        #gallery-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="project-card" data-gallery="image1.jpg,image2.jpg,image3.jpg">Project 1</div>
+    <div class="project-card" data-gallery="image4.jpg,image5.jpg,image6.jpg">Project 2</div>
+
+    <!-- Gallery -->
+    <div id="gallery" class="hidden">
+        <img id="gallery-image" src="" alt="Gallery Image">
+        <button id="gallery-close">&times;</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectCards = document.querySelectorAll('.project-card');
+            const gallery = document.getElementById('gallery');
+            const galleryImage = document.getElementById('gallery-image');
+            const galleryClose = document.getElementById('gallery-close');
+
+            let currentGalleryImages = [];
+            let currentIndex = 0;
+
+            const showImage = (index) => {
+                if (currentGalleryImages.length > 0) {
+                    galleryImage.src = currentGalleryImages[index].trim();
+                }
+            };
+
+            const openGallery = (images) => {
+                currentGalleryImages = images;
+                currentIndex = 0;
+                showImage(currentIndex);
+                gallery.classList.remove('hidden');
+                gallery.classList.add('flex');
+            };
+
+            const closeGallery = () => {
+                gallery.classList.remove('flex');
+                gallery.classList.add('hidden');
+            };
+
+            projectCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const galleryImages = card.getAttribute('data-gallery').split(',');
+                    openGallery(galleryImages);
+                });
+            });
+
+            galleryImage.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % currentGalleryImages.length;
+                showImage(currentIndex);
+            });
+
+            galleryClose.addEventListener('click', closeGallery);
+
+            gallery.addEventListener('click', (event) => {
+                if (event.target === gallery) {
+                    closeGallery();
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && !gallery.classList.contains('hidden')) {
+                    closeGallery();
+                }
+
+                if (!gallery.classList.contains('hidden')) {
+                    if (event.key === 'ArrowRight') {
+                        currentIndex = (currentIndex + 1) % currentGalleryImages.length;
+                        showImage(currentIndex);
+                    }
+                    if (event.key === 'ArrowLeft') {
+                        currentIndex = (currentIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+                        showImage(currentIndex);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

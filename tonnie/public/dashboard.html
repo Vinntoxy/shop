@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Interactive Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            /* Blue Color Palette */
+            --color-primary-50: #e6f2ff;
+            --color-primary-100: #b3d9ff;
+            --color-primary-200: #80bfff;
+            --color-primary-300: #4da6ff;
+            --color-primary-400: #1a8cff;
+            --color-primary-500: #0066cc;
+            --color-primary-600: #004c99;
+            --color-primary-700: #003366;
+
+            /* Complementary Neutral Tones */
+            --color-neutral-50: #f9fafb;
+            --color-neutral-100: #f3f4f6;
+            --color-neutral-200: #e5e7eb;
+            --color-neutral-800: #1f2937;
+            --color-neutral-900: #111827;
+
+            /* Supporting Colors */
+            --color-accent: #2563eb;
+            --color-success: #10b981;
+            --color-error: #ef4444;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--color-neutral-50);
+            color: var(--color-neutral-900);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+
+        header {
+            background: linear-gradient(to right, var(--color-primary-600), var(--color-primary-500));
+            padding: 16px;
+            color: var(--color-primary-50);
+            text-align: center;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: space-between;
+        }
+
+        /* Visits Section */
+        .visits-section {
+            flex: 1;
+            min-width: 350px;
+            background-color: white;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 
+                0 10px 15px -3px rgba(0, 102, 204, 0.1),
+                0 4px 6px -2px rgba(0, 102, 204, 0.05);
+        }
+
+        .visits-section h2 {
+            color: var(--color-primary-600);
+        }
+
+        .chart-buttons {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .chart-buttons button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            background-color: var(--color-primary-500);
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .chart-buttons button:hover {
+            background-color: var(--color-primary-600);
+        }
+
+        .chart-buttons button.active {
+            background-color: var(--color-primary-700);
+        }
+
+        .visits-chart {
+            margin-top: 16px;
+        }
+
+        /* Additional Metrics Section */
+        .card {
+            flex: 1;
+            min-width: 350px;
+            background-color: white;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 
+                0 10px 15px -3px rgba(0, 102, 204, 0.1),
+                0 4px 6px -2px rgba(0, 102, 204, 0.05);
+        }
+
+        .card h3 {
+            color: var(--color-primary-600);
+        }
+
+        .projects-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 1rem;
+            padding: 1rem 0;
+        }
+
+        .project-card {
+            flex: 0 0 auto;
+            width: 250px;
+            background-color: var(--color-neutral-100);
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .recent-contacts ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .recent-contacts li {
+            background-color: var(--color-neutral-100);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Comments Section */
+        .comments-section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 
+                0 10px 15px -3px rgba(0, 102, 204, 0.1),
+                0 4px 6px -2px rgba(0, 102, 204, 0.05);
+            margin-top: 16px;
+        }
+
+        .comments-section h3 {
+            color: var(--color-primary-600);
+        }
+
+        .comment-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .comment-item {
+            background-color: var(--color-neutral-100);
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .comment-item .author {
+            font-weight: bold;
+            color: var(--color-primary-500);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                gap: 1rem;
+            }
+
+            .chart-buttons {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Dashboard</h1>
+            <a href="home.html">home</a>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Visits Section -->
+            <div class="visits-section">
+                <h2>Visits</h2>
+                <h3>300</h3>
+                <div class="chart-buttons">
+                    <button data-category="daily" class="active">Daily</button>
+                    <button data-category="weekly">Last Week</button>
+                    <button data-category="monthly">Last Month</button>
+                    <button data-category="all">All</button>
+                </div>
+                <canvas id="visitsChart" class="visits-chart"></canvas>
+            </div>
+
+            <!-- Additional Metrics Section -->
+            <div class="card">
+                <h3>Projects</h3>
+                <section class="py-16" id="projects">
+                    <div class="container mx-auto">
+                        <section class="py-16" id="projects">
+                            <div class="container mx-auto">
+                                <div class="scrollable-projects">
+                                    <!-- Project 1 -->
+                                   <!-- <a class="project-card" onclick="openGallery(['roofing.jpg', 'roofing-detail1.jpg', 'roofing-detail2.jpg'])">
+                                        <img src="roofing.jpg" alt="Project 1">
+                                        <div class="text-overlay">
+                                            <h4>Project 1: Residential Roof Replacement</h4>
+                                            <p>Complete roof replacement using premium architectural shingles to enhance weather resistance and durability.</p>
+                                        </div>
+                                    </a>
+                                    <!-- Project 2 -->
+                                    <a class="project-card" onclick="openGallery(['roof3.jpg', '/public/images/roof7.jpg', 'project2-detail2.jpg'])">
+                                        <img src="roof3.jpg" alt="Project 2">
+                                        <div class="text-overlay">
+                                            <h4>Project 2: Commercial Roof Installation</h4>
+                                            <p>Large-scale commercial roof installation using energy-efficient materials with a modern design.</p>
+                                        </div>
+                                    </a>
+                                    <!-- Project 3 -->
+                                    <a class="project-card" onclick="openGallery(['project3.jpg', 'project3-detail1.jpg', 'project3-detail2.jpg'])">
+                                        <img src="roof7.jpg" alt="Project 3">
+                                        <div class="text-overlay">
+                                            <h4>Project 3: Luxury Villa Roof Repair</h4>
+                                            <p>Roof repair for a luxury villa with high-end materials ensuring long-lasting results and aesthetic appeal.</p>
+                                        </div>
+                                    </a>
+                                    <!-- Project 4 -->
+                                    <a class="project-card" onclick="openGallery(['project4.jpg', 'project4-detail1.jpg', 'project4-detail2.jpg'])">
+                                        <img src="roof1.jpg" alt="Project 4">
+                                        <div class="text-overlay">
+                                            <h4>Project 4: Industrial Roof Overhaul</h4>
+                                            <p>Comprehensive roof overhaul for a manufacturing facility with heavy-duty and weatherproof materials.</p>
+                                        </div>
+                                    </a>
+                                    <!-- Project 5 -->
+                                    <a class="project-card" onclick="openGallery(['project5.jpg', 'project5-detail1.jpg', 'project5-detail2.jpg'])">
+                                        <img src="roof11.jpg" alt="Project 5">
+                                        <div class="text-overlay">
+                                            <h4>Project 5: Eco-Friendly Roof Installation</h4>
+                                            <p>Installation of sustainable roofing solutions utilizing eco-friendly materials and solar integration.</p>
+                                        </div>
+                                    </a>
+                                    <!-- Project 6 -->
+                                    <a class="project-card" onclick="openGallery(['project6.jpg', 'project6-detail1.jpg', 'project6-detail2.jpg'])">
+                                        <img src="roof2.jpg" alt="Project 6">
+                                        <div class="text-overlay">
+                                            <h4>Project 6: Historic Building Restoration</h4>
+                                            <p>Roof restoration for a historic building, preserving its heritage while enhancing structural integrity.</p>
+                                        </div>
+                                    </a>
+                                    <!-- Project 7 -->
+                                    <a class="project-card" onclick="openGallery(['gypsum1.jpg', 'gypsum1-detail1.jpg', 'gypsum1-detail2.jpg'])">
+                                        <img src="roof6.jpg" alt="Project 7">
+                                        <div class="text-overlay">
+                                            <h4>Project 7: Modern Gypsum Ceiling</h4>
+                                            <p>Contemporary gypsum ceiling design featuring intricate patterns and energy-efficient lighting options.</p>
+                                        </div>
+                                    </a>
+                                    <!-- Project 8 -->
+                                    <a class="project-card" onclick="openGallery(['gypsum2.jpg', 'gypsum2-detail1.jpg', 'gypsum2-detail2.jpg'])">
+                                        <img src="roof5.jpg" alt="Project 8">
+                                        <div class="text-overlay">
+                                            <h4>Project 8: Soundproof Gypsum Wall</h4>
+                                            <p>Installation of soundproof gypsum walls for enhanced privacy and noise reduction in residential spaces.</p>
+                                        </div>
+                                    </a>
+                                    <!-- Project 9 -->
+                                    <a class="project-card" onclick="openGallery(['roofdesign1.jpg', 'roofdesign1-detail1.jpg', 'roofdesign1-detail2.jpg'])">
+                                        <img src="roof9.jpg" alt="Project 9">
+                                        <div class="text-overlay">
+                                            <h4>Project 9: Contemporary Roof Design</h4>
+                                            <p>Innovative roof design with a focus on aesthetics and modern architecture, using durable materials.</p>
+                                        </div>
+                                    </a>
+                                    <!-- Project 10 -->
+                                    <a class="project-card" onclick="openGallery(['roofdesign2.jpg', 'roofdesign2-detail1.jpg', 'roofdesign2-detail2.jpg'])">
+                                        <img src="roof8.jpg" alt="Project 10">
+                                        <div class="text-overlay">
+                                            <h4>Project 10: Eco-Friendly Roof Design</h4>
+                                            <p>Green roof design incorporating vegetation layers to promote sustainability and energy efficiency.</p>
+                                        </div>
+                                    </a>
+                                    <!-- Project 11 -->
+                                    <a class="project-card" onclick="openGallery(['ceiling1.jpg', 'ceiling1-detail1.jpg', 'ceiling1-detail2.jpg'])">
+                                        <img src="roof10.jpg" alt="Project 11">
+                                        <div class="text-overlay">
+                                            <h4>Project 11: Decorative Ceiling Installation</h4>
+                                            <p>Beautiful decorative ceiling installation featuring artistic patterns and advanced materials.</p>
+                                        </div>
+                                    </a>
+                                    <!-- Project 12 -->
+                                    <a class="project-card" onclick="openGallery(['ceiling2.jpg', 'ceiling2-detail1.jpg', 'ceiling2-detail2.jpg'])">
+                                        <img src="roof2.jpg" alt="Project 12">
+                                        <div class="text-overlay">
+                                            <h4>Project 12: Acoustic Ceiling Installation</h4>
+                                            <p>Installation of acoustic ceilings to improve sound quality and reduce noise in commercial spaces.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                    
+
+            <div class="card">
+                <h3>Recent Contacts</h3>
+                <div class="recent-contacts">
+                    <ul>
+                        <li>Contact 1 - contact1@example.com</li>
+                        <li>Contact 2 - contact2@example.com</li>
+                        <li>Contact 3 - contact3@example.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Comments Section -->
+            <div class="comments-section">
+                <h3>Recent Comments</h3>
+                <ul class="comment-list">
+                    <li class="comment-item">
+                        <p class="author">John Doe:</p>
+                        <p>This is a comment about the project!</p>
+                    </li>
+                    <li class="comment-item">
+                        <p class="author">Jane Smith:</p>
+                        <p>Looking forward to seeing the updates!</p>
+                    </li>
+                    <li class="comment-item">
+                        <p class="author">Alice Johnson:</p>
+                        <p>Great work on this project!</p>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

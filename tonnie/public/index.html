@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reliable Roofing Co. Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: maroon;
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .section {
+            padding: 2rem 0;
+            background: lightblue;
+        }
+
+        .section:nth-child(even) {
+            background: #f4f4f4;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: maroon;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .project-card {
+            background: #fff;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .service {
+            background: #fff;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin: 10px 0 5px;
+        }
+
+        form input,
+        form textarea {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            background: maroon;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: black;
+        }
+
+        footer {
+            background: maroon;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        #gallery {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        #gallery img {
+            max-width: 90%;
+            max-height: 80%;
+        }
+
+        #gallery-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Reliable Roofing Co.</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">All Projects</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Our Company</h2>
+            <p>Reliable Roofing Co. has been serving the community for over 15 years, providing high-quality roofing services for residential and commercial properties. Our team is committed to excellence and customer satisfaction.</p>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card" data-gallery="images/project1-1.jpg,images/project1-2.jpg,images/project1-3.jpg">
+                    <img src="images/project1-cover.jpg" alt="Project 1">
+                    <h3>Web Design Project</h3>
+                    <p>A responsive website design with modern UI/UX principles.</p>
+                </div>
+                <div class="project-card" data-gallery="images/project2-1.jpg,images/project2-2.jpg,images/project2-3.jpg">
+                    <img src="images/project2-cover.jpg" alt="Project 2">
+                    <h3>Mobile App Development</h3>
+                    <p>An innovative mobile application with clean and intuitive design.</p>
+                </div>
+                <div class="project-card" data-gallery="images/project3-1.jpg,images/project3-2.jpg,images/project3-3.jpg">
+                    <img src="images/project3-cover.jpg" alt="Project 3">
+                    <h3>Data Visualization Tool</h3>
+                    <p>Interactive dashboard for complex data analysis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services">
+                <div class="service">
+                    <h3>Roofing</h3>
+                    <p>We provide durable, weather-resistant, and aesthetically pleasing roofing solutions for homes and businesses.</p>
+                </div>
+                <div class="service">
+                    <h3>Interior Design</h3>
+                    <p>Transform your spaces into functional and beautiful environments.</p>
+                </div>
+                <div class="service">
+                    <h3>Gypsum Installation</h3>
+                    <p>High-quality gypsum installation for ceilings and walls.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Reliable Roofing Co. | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- Gallery -->
+    <div id="gallery" class="hidden">
+        <img id="gallery-image" src="" alt="Gallery Image">
+        <button id="gallery-close">&times;</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectCards = document.querySelectorAll('.project-card');
+            const gallery = document.getElementById('gallery');
+            const galleryImage = document.getElementById('gallery-image');
+            const galleryClose = document.getElementById('gallery-close');
+
+            let currentGalleryImages = [];
+            let currentIndex = 0;
+
+            const showImage = (index) => {
+                if (currentGalleryImages.length > 0) {
+                    galleryImage.src = currentGalleryImages[index].trim();
+                }
+            };
+
+            const openGallery = (images) => {
+                currentGalleryImages = images;
+                currentIndex = 0;
+                showImage(currentIndex);
+                gallery.classList.remove('hidden');
+                gallery.classList.add('flex');
+            };
+
+            const closeGallery = () => {
+                gallery.classList.remove('flex');
+                gallery.classList.add('hidden');
+            };
+
+            projectCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const galleryImages = card.getAttribute('data-gallery').split(',');
+                    openGallery(galleryImages);
+                });
+            });
+
+            galleryImage.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % currentGalleryImages.length;
+                showImage(currentIndex);
+            });
+
+            galleryClose.addEventListener('click', closeGallery);
+
+            gallery.addEventListener('click', (event) => {
+                if (event.target === gallery) {
+                    closeGallery();
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && !gallery.classList.contains('hidden')) {
+                    closeGallery();
+                }
+
+                if (!gallery.classList.contains('hidden')) {
+                    if (event.key === 'ArrowRight') {
+                        currentIndex = (currentIndex + 1) % currentGalleryImages.length;
+                        showImage(currentIndex);
+                    }
+                    if (event.key === 'ArrowLeft') {
+                        currentIndex = (currentIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+                        showImage(currentIndex);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
